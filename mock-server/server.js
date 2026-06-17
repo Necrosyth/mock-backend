@@ -6,16 +6,14 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const app = express();
 app.use(cors());
 
-// Paths
-const VIDEO_PATH = path.join(__dirname, '../video.mp4');
-const ANNOTATIONS_PATH = path.join(__dirname, '../annotations.json');
-
+// server.js — change these two lines
+const VIDEO_PATH = path.join(__dirname, 'video.mp4');
+const ANNOTATIONS_PATH = path.join(__dirname, 'annotations.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // HTTP Routes
 app.get('/health', (req, res) => {
   res.json({ ok: true });
